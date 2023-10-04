@@ -40,15 +40,29 @@ int remainder(int a, int b) {
 
 int main(void)
 {
-	int x;
-	int y;
-	char op;
+    int x;
+    int y;
+    char op;
     int result;
 
-	printf("ê³„ì‚°í•  ì‹ì„ ìž…ë ¥í•˜ì„¸ìš” >> ");
-	scanf("%d %c %d", &x, &op, &y);
+    printf("°è»êÇÒ ½ÄÀ» ÀÔ·ÂÇÏ¼¼¿ä >> ");
+    scanf("%d %c %d", &x, &op, &y);
 
-	return 0;
+    switch (op) {
+    case '+': 
+        result = add(x, y);
+        break;
+
+    case '-':
+        result = subtract(x, y);
+        break;
+
+    case '*':
+        result = multiply(x, y);
+        break;
+    }
+
+    printf("%d%c%d = %d/n", x, op, y, result);
+
+    return 0;
 }
-
-
