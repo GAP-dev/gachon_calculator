@@ -10,42 +10,56 @@ int add(int a, int b) {
 }
 
 int subtract(int a, int b) {
-    int calc;
+    int bosu = ~b + 1;
 
+    int calc = a + bosu;
 
     return calc;
 }
 
 int multiply(int a, int b) {
-    int calc;
+    int calc = 0;
 
-
+    for (int i = 0; i < b; i++) {
+        calc = calc + a;
+    }
     return calc;
 }
 
 int divide(int a, int b) {
     int m = 0;
+
     if (b != 0) {
         while (a >= b) {
             a -= b;
             m++;
         }
         return m;
-    }    else {
+    }
+    else {
         printf("0¿∏∑Œ ≥™¥≠ ºˆ æ¯Ω¿¥œ¥Ÿ.\n");
         return 0;
     }
-    return calc;
 }
 
 int remainder(int a, int b) {
-    int calc;
-    while (a >= b) {
-        a -= b;
-    }
-    return a;
+    int c = a;
+    int m = 0;
+    int remainder=0;
 
-    return calc;
+    if (b != 0) {
+        while (c >= b) {
+            c -= b;
+            m++;
+        }
+        remainder = subtract(a, b * m);
+        return remainder;
+    }
+
+    else {
+        printf("0¿∏∑Œ ≥™¥≠ ºˆ æ¯Ω¿¥œ¥Ÿ.\n");
+        return 0;
+    }
 }
 
 void Binary(int n) {
@@ -81,13 +95,17 @@ int main(void)
     }
 
     if (op == '/') {
-        printf("%d%c%d = %d [≥™∏”¡ˆ¥¬ %d] [HEX: %X, OCT: %o, BIN: ]", x, op, y, result, r, result, result, result);
-        Binary(result);
-    }
-    else {
-        printf("%d%c%d = %d [HEX: %X, OCT: %o, BIN: ", x, op, y, result, result, result);
+        printf("%d%c%d = %d [≥™∏”¡ˆ¥¬ %d] [HEX: %#x, OCT: %#o, BIN:", x, op, y, result, r, result, result);
         Binary(result);
         printf("]\n");
+    }
+    else if (op == '+' || op == '-' || op == '*') {
+        printf("%d%c%d = %d [HEX: %#x, OCT: %#o, BIN: ", x, op, y, result, result, result);
+        Binary(result);
+        printf("]\n");
+    }
+    else {
+        return 0;
     }
     
 	return 0;
