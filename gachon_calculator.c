@@ -48,6 +48,22 @@ int main(void)
 	printf("계산할 식을 입력하세요 >> ");
 	scanf("%d %c %d", &x, &op, &y);
 
+    switch (op) {
+    case '+':
+        result = add(x, y);
+        break;
+
+    case '-':
+        result = subtract(x, y);
+        break;
+
+    case '*':
+        result = multiply(x, y);
+        break;
+    }
+
+    printf("%d%c%d = %d [HEX: %X, OCT: %o, BIN: %d]\n", x, op, y, result, result, result, result);
+    
 	return 0;
 }
 
