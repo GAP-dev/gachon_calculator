@@ -118,7 +118,15 @@ int main(void)
     int r = 0;
 
     printf("계산할 식을 입력하세요 >> ");
-    scanf("%d %c %d", &x, &op, &y);
+    if(scanf("%d %c %d", &x, &op, &y)==3)
+    {
+        printf("\n");
+    }
+    else
+    {
+        printf("올바른 입력 형태가 아닙니다!\n");
+        return 0;
+    }
     if(op=='*'||op=='/')
     {
         if(x<0&&y>0)
